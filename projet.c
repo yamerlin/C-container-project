@@ -7,8 +7,6 @@
 //include <sys/types.h>
 #include <unistd.h> //Lib pour fork()
 
-//int unshare(int flags);
-
 int main()
 {
 	//Avant le fork, le processus doit appeler
@@ -25,12 +23,6 @@ int main()
 	else if(returnedValueUnshare == 0){
 	 	printf("Unshare reussi \n");
 	}
-
-	//char pids[] = "";
-
-	//system("echo $$");
-
-	//printf("%s", pids);
 
 
 	//Le processus se fork
@@ -85,7 +77,6 @@ int main()
 		// cp ps /home/yann/Cprojects/bin/
 		// cp kill /home/yann/Cprojects/bin/
 		// cp ls /home/yann/Cprojects/bin/
-		// cp /lib/x86_64-linux-gnu/ lib
 		// cp /lib/x86_64-linux-gnu/libtinfo.so.6 lib
 		// cp /lib/x86_64-linux-gnu/libc.so.6 lib
 		// cp /lib64/ld-linux-x86-64.so.2 lib64
@@ -94,7 +85,7 @@ int main()
 		char path[] = "/home/yann/Cprojects";
 		int returnedValueChroot = chroot(path);
 		if(returnedValueChroot == -1){
-			printf("Echec du chroot\n");
+			printf("Echec du chroot verifiez votre variable path ou votre arborescence\n");
 			exit(1);
 		}
 		else if(returnedValueChroot == 0){
